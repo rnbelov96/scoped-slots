@@ -5,27 +5,21 @@
       :key="`${itemList[0].name}-${index}`"
       :item-list="itemList"
     >
-      <TableCell
-        v-for="cell in itemList"
-        :key="`${cell.name}-${cell.age}`"
-      >
-        <template #cell>
-          <slot
-            name="cell"
-            :data="cell"
-          />
-        </template>
-      </TableCell>
+      <template #cell="{item}">
+        <slot
+          name="cell"
+          :item="item"
+        />
+      </template>
     </TableRow>
   </div>
 </template>
 
 <script>
-import TableCell from './TableCell.vue';
 import TableRow from './TableRow.vue';
 
 export default {
-  components: { TableRow, TableCell },
+  components: { TableRow },
   props: ['rowList'],
 };
 </script>

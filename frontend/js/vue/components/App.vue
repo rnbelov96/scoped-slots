@@ -1,12 +1,14 @@
 <template>
   <RTable :row-list="rowList">
-    <template #cell="{ data }">
+    <template
+      #cell="{item}"
+    >
       <div class="cell">
         <p>
-          {{ data.name }}
+          {{ item.name }}
         </p>
         <p>
-          {{ data.age }}
+          {{ item.age }}
         </p>
       </div>
     </template>
